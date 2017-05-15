@@ -287,7 +287,11 @@ function markEnd(debugID, markType) {
   var timeStamp = performanceNow();
   if (timeStamp - lastMarkTimeStamp > 0.1) {
     var measurementName = `${displayName} [${markType}]`;
-    performance.measure(measurementName, markName);
+    try {
+      performance.measure(measurementName, markName);
+    } catch (e) {
+      console.log("performance.measure failed on " + measurementName + " because of " + e);
+    }
   }
 
   performance.clearMarks(markName);
