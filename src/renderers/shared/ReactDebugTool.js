@@ -290,7 +290,7 @@ function markEnd(debugID, markType) {
     try {
       performance.measure(measurementName, markName);
     } catch (e) {
-      console.log("performance.measure failed on " + measurementName + " because of " + e);
+      
     }
   }
 
